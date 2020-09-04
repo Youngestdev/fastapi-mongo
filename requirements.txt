@@ -1,0 +1,3 @@
+fastapi==0.61.1
+pydantic==1.6.1
+uvicorn==0.11.8
