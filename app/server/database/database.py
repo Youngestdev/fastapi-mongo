@@ -39,9 +39,36 @@ async def delete_student(id: str):
         return True
 
 
-async def update_student_data(id: str, student_record: dict):
-    # if student:
-    x = await student_collection.find_one_and_update({"_id": id}, {"$set": {student_record}})
+async def update_student_name(id: str, fullname: str):
     student = await student_collection.find_one({"_id": ObjectId(id)})
-    print(x)
-    return student_helper(student)
+    if student:
+        student_collection.update_one({"_id": ObjectId(id)}, {"$set": {"fullname": fullname}})
+        return True
+
+
+async def update_student_email(id: str, email: str):
+    student = await student_collection.find_one({"_id": ObjectId(id)})
+    if student:
+        student_collection.update_one({"_id": ObjectId(id)}, {"$set": {"email": email}})
+        return True
+
+
+async def update_student_course(id: str, course: str):
+    student = await student_collection.find_one({"_id": ObjectId(id)})
+    if student:
+        student_collection.update_one({"_id": ObjectId(id)}, {"$set": {"course": course}})
+        return True
+
+
+async def update_student_year(id: str, year: int):
+    student = await student_collection.find_one({"_id": ObjectId(id)})
+    if student:
+        student_collection.update_one({"_id": ObjectId(id)}, {"$set": {"year": year}})
+        return True
+
+
+async def update_student_gpa(id: str, gpa: float):
+    student = await student_collection.find_one({"_id": ObjectId(id)})
+    if student:
+        student_collection.update_one({"_id": ObjectId(id)}, {"$set": {"gpa": gpa}})
+        return True
