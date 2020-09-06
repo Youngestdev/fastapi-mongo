@@ -1,4 +1,3 @@
-
 # FastAPI + MongoDB
 
 A simple starter for building RESTful APIs with FastAPI and MongoDB. 
@@ -14,9 +13,10 @@ A simple starter for building RESTful APIs with FastAPI and MongoDB.
 
 Clone this repository and make a virtual environment in it. Install the modules listed in the `requirements.txt` file:
 
-```
+```bash
 pip3 install -r requirements.txt
-`
+```
+
 ## Deploying to Vercel [TODO]
 
 I'll add this section after adding the deployment config :)
@@ -32,10 +32,15 @@ Fork the repo, make changes and send a PR. We'll review it together!
 ## TODOS
 
 [ ] Add a simple bash script file that runs the installation process.
+
 [x] Fix the `UPDATE` part of the CRUD operation
+
 [ ] Add Authentication
+
 [ ] Add Dockerfile and Vercel configuration file
+
 [ ] Write a concise README
+
 [x] Format code. I'm new to FastAPI so I'll be working towards best practices.
 
 
