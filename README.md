@@ -1,3 +1,4 @@
+
 # FastAPI + MongoDB
 
 A simple starter for building RESTful APIs with FastAPI and MongoDB. 
@@ -31,11 +32,11 @@ Fork the repo, make changes and send a PR. We'll review it together!
 ## TODOS
 
 [ ] Add a simple bash script file that runs the installation process.
-[ ] Fix the `UPDATE` part of the CRUD operation
+[x] Fix the `UPDATE` part of the CRUD operation
 [ ] Add Authentication
 [ ] Add Dockerfile and Vercel configuration file
 [ ] Write a concise README
-[ ] Format code. I'm new to FastAPI so I'll be working towards best practices.
+[x] Format code. I'm new to FastAPI so I'll be working towards best practices.
 
 
 ## License
