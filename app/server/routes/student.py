@@ -52,7 +52,7 @@ async def update_name(id: str, req: UpdateName = Body(...)):
 async def update_email(id: str, req: UpdateEmail = Body(...)):
     updated_email = await update_student_email(id, req.email)
     return ResponseModel("Student with ID: {} email update is successful".format(id),
-                         "Student name updated succeasfully") \
+                         "Student email updated succeasfully") \
         if updated_email \
         else ErrorResponseModel("An error occured", 404, "Student with id {0} doesn't exist.".format(id))
 
@@ -61,7 +61,7 @@ async def update_email(id: str, req: UpdateEmail = Body(...)):
 async def update_course(id: str, req: UpdateCourse = Body(...)):
     updated_course = await update_student_course(id, req.course)
     return ResponseModel("Student with ID: {} course update is successful".format(id),
-                         "Student name updated succeasfully") \
+                         "Student course updated succeasfully") \
         if updated_course \
         else ErrorResponseModel("An error occured", 404, "Student with id {0} doesn't exist.".format(id))
 
@@ -70,7 +70,7 @@ async def update_course(id: str, req: UpdateCourse = Body(...)):
 async def update_year(id: str, req: UpdateYear = Body(...)):
     updated_year = await update_student_year(id, req.year)
     return ResponseModel("Student with ID: {} year update is successful".format(id),
-                         "Student name updated succeasfully") \
+                         "Student year updated succeasfully") \
         if updated_year \
         else ErrorResponseModel("An error occured", 404, "Student with id {0} doesn't exist.".format(id))
 
@@ -79,6 +79,6 @@ async def update_year(id: str, req: UpdateYear = Body(...)):
 async def update_gpa(id: str, req: UpdateGpa = Body(...)):
     updated_gpa = await update_student_gpa(id, req.gpa)
     return ResponseModel("Student with ID: {} GPA update is successful".format(id),
-                         "Student name updated succeasfully") \
+                         "Student GPA updated succeasfully") \
         if updated_gpa \
         else ErrorResponseModel("An error occured", 404, "Student with id {0} doesn't exist.".format(id))
