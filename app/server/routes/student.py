@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Body
 from fastapi.encoders import jsonable_encoder
 
-from app.server.database.database import retrieve_students, add_student, retrieve_student, delete_student, update_student_data
-from app.server.models.student import StudentModel, ResponseModel, ErrorResponseModel
+from app.server.database.database import *
+from app.server.models.student import *
 
 router = APIRouter()
 
@@ -24,19 +24,11 @@ async def get_student_data(id):
         else ErrorResponseModel("An error occured.", 404, "Student doesn'exist.")
 
 
-@router.post("/new", response_description="Student data added into the database")
+@router.post("/", response_description="Student data added into the database")
 async def add_student_data(student: StudentModel = Body(...)):
     student = jsonable_encoder(student)
     new_student = await add_student(student)
     return ResponseModel(new_student, "Student added successfully.")
-
-
-# I will have to write multiple for this tbh.
-@router.put("/{id}", response_description="Student data updated")
-async def update_student(id: str, body: StudentModel = Body(...)):
-    student_data = jsonable_encoder(body)
-    updated_student = await update_student_data(id, student_data)
-    return ResponseModel(updated_student, "")
 
 
 @router.delete("/{id}", response_description="Student data deleted from the database")
@@ -45,3 +37,48 @@ async def delete_student_data(id: str):
     return ResponseModel("Student with ID: {} removed".format(id), "Student deleted successfully") \
         if deleted_student \
         else ErrorResponseModel("An error occured", 404, "Student with id {0} doesn't exist".format(id))
+
+
+@router.put("/name/{id}")
+async def update_name(id: str, req: UpdateName = Body(...)):
+    updated_student = await update_student_name(id, req.fullname)
+    return ResponseModel("Student with ID: {} name update is successful".format(id),
+                         "Student name updated succeasfully") \
+        if updated_student \
+        else ErrorResponseModel("An error occured", 404, "Student with id {0} doesn't exist.".format(id))
+
+
+@router.put("/email/{id}")
+async def update_email(id: str, req: UpdateEmail = Body(...)):
+    updated_email = await update_student_email(id, req.email)
+    return ResponseModel("Student with ID: {} email update is successful".format(id),
+                         "Student name updated succeasfully") \
+        if updated_email \
+        else ErrorResponseModel("An error occured", 404, "Student with id {0} doesn't exist.".format(id))
+
+
+@router.put("/course/{id}")
+async def update_course(id: str, req: UpdateCourse = Body(...)):
+    updated_course = await update_student_course(id, req.course)
+    return ResponseModel("Student with ID: {} course update is successful".format(id),
+                         "Student name updated succeasfully") \
+        if updated_course \
+        else ErrorResponseModel("An error occured", 404, "Student with id {0} doesn't exist.".format(id))
+
+
+@router.put("/year/{id}")
+async def update_year(id: str, req: UpdateYear = Body(...)):
+    updated_year = await update_student_year(id, req.year)
+    return ResponseModel("Student with ID: {} year update is successful".format(id),
+                         "Student name updated succeasfully") \
+        if updated_year \
+        else ErrorResponseModel("An error occured", 404, "Student with id {0} doesn't exist.".format(id))
+
+
+@router.put("/gpa/{id}")
+async def update_gpa(id: str, req: UpdateGpa = Body(...)):
+    updated_gpa = await update_student_gpa(id, req.gpa)
+    return ResponseModel("Student with ID: {} GPA update is successful".format(id),
+                         "Student name updated succeasfully") \
+        if updated_gpa \
+        else ErrorResponseModel("An error occured", 404, "Student with id {0} doesn't exist.".format(id))
