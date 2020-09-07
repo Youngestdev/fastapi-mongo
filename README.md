@@ -13,13 +13,45 @@ A simple starter for building RESTful APIs with FastAPI and MongoDB.
 
 Clone this repository and make a virtual environment in it. Install the modules listed in the `requirements.txt` file:
 
-```bash
+```console
 pip3 install -r requirements.txt
 ```
 
-## Deploying to Vercel [TODO]
+To run the starter:
 
-I'll add this section after adding the deployment config :)
+First, set your `PYTHONPATH`:
+
+```console
+export PYTHONPATH=$PWD
+```
+
+Next:
+
+```console
+python app/main.py
+```
+
+You also need to start your mongodb instance.
+
+The starter listens on port 8000 on address [0.0.0.0](0.0.0.0). 
+
+![FastAPI-MongoDB starter](https://res.cloudinary.com/adeshina/image/upload/v1599469492/gwzjqryzfvufftyypldo.png)
+
+## Deploying to Vercel
+
+To deploy to [vercel](https://vercel.com), make sure the `vercel` CLI tool is installed and run the command in the base directory:
+
+```console
+vercel 
+```
+
+The above deploys to development, to deploy it into production, run:
+
+```console
+vercel --prod
+```
+
+After the installations, add your `MONGO_DETAILS` environment value in Vercel.
 
 ## Dockerising [TODO]
 
@@ -37,7 +69,9 @@ Fork the repo, make changes and send a PR. We'll review it together!
 
 [ ] Add Authentication
 
-[ ] Add Dockerfile and Vercel configuration file
+[ ] Add Dockerfile
+
+[x] Vercel configuration file
 
 [ ] Write a concise README
 
