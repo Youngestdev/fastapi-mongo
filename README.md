@@ -39,6 +39,8 @@ The starter listens on port 8000 on address [0.0.0.0](0.0.0.0).
 
 ## Deploying to Vercel
 
+> Currently, the vercel build fails when running requests to MongoDB through the async driver. The next section shows how to deploy to Heroku.
+
 To deploy to [vercel](https://vercel.com), make sure the `vercel` CLI tool is installed and run the command in the base directory:
 
 ```console
@@ -51,11 +53,27 @@ The above deploys to development, to deploy it into production, run:
 vercel --prod
 ```
 
-After the installations, add your `MONGO_DETAILS` environment value in Vercel.
+Ensure you add the environment variable `MONGO_DETAILS` in vercel.
 
-## Dockerising [TODO]
+## Deploying to Heroku
 
-I'll write a short blog post on this or maybe a mini section here. It's a todo!
+To deploy to Heroku, connect your repository to the Heroku application and deploy the branch master. This template has been deployed to Heroku and you can view it here: [FastAPI Mongo](https://fastapi-mongo.herokuapp.com/)
+
+Ensure you add the environment variable `MONGO_DETAILS` in your application's settings.
+
+## Dockerising
+
+To build a docker image for this boilerplate, create a duplicate `.env` file but with name `env`. Next, build an image:
+
+```console
+docker build -t fastapi-mongo .
+```
+
+The command above builds an image that can be deployed. To run the image in a container:
+
+```console
+docker run --env-file env -d --name fastapi-mongo -p 80:80 fastapi-mongo:latest
+```
 
 ## Contributing ?
 
@@ -69,9 +87,11 @@ Fork the repo, make changes and send a PR. We'll review it together!
 
 [ ] Add Authentication
 
-[ ] Add Dockerfile
+[x] Add Dockerfile
 
 [x] Vercel configuration file
+
+[x] Deploying to Heroku
 
 [ ] Write a concise README
 
