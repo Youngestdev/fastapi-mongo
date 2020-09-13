@@ -7,7 +7,7 @@ A simple starter for building RESTful APIs with FastAPI and MongoDB.
 + Python FastAPI backend.
 + MongoDB database.
 + Authentication [Coming soon]
-+ Deployment [coming soon]
++ Deployment
 
 ## How To Use
 
