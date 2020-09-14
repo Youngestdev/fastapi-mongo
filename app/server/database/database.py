@@ -2,7 +2,7 @@ import motor.motor_asyncio
 from bson import ObjectId
 from decouple import config
 
-from app.server.database.database_helper import student_helper
+from app.server.database.database_helper import student_helper, admin_helper
 
 MONGO_DETAILS = config('MONGO_DETAILS')
 
@@ -11,7 +11,12 @@ client = motor.motor_asyncio.AsyncIOMotorClient(MONGO_DETAILS)
 database = client.students
 
 student_collection = database.get_collection('students_collection')
+admin_collection = database.get_collection('admins')
 
+async def add_admin(admin_data: dict) -> dict:
+    admin = await admin_collection.insert_one(admin_data)
+    new_admin = await admin_collection.find_one({"_id": admin.inserted_id})
+    return admin_helper(new_admin)
 
 async def retrieve_students():
     students = []
