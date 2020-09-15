@@ -1,3 +1,5 @@
+from typing import Optional
+
 from pydantic import BaseModel, EmailStr, Field
 
 
@@ -20,56 +22,20 @@ class StudentModel(BaseModel):
         }
 
 
-class UpdateName(BaseModel):
-    fullname: str = Field(...)
+class UpdateStudentModel(BaseModel):
+    fullname: Optional[str]
+    email: Optional[EmailStr]
+    course_of_study: Optional[str]
+    year: Optional[int]
+    gpa: Optional[float]
 
     class Config:
         schema_extra = {
             "example": {
-                "fullname": "Abdulazeez Abdulazeez"
-            }
-        }
-
-
-class UpdateEmail(BaseModel):
-    email: EmailStr = Field(...)
-
-    class Config:
-        schema_extra = {
-            "example": {
-                "email": "abdulazeez@y.edu.ng"
-            }
-        }
-
-
-class UpdateCourse(BaseModel):
-    course: str = Field(...)
-
-    class Config:
-        schema_extra = {
-            "example": {
-                "course": "Civil engineering"
-            }
-        }
-
-
-class UpdateYear(BaseModel):
-    year: int = Field(...)
-
-    class Config:
-        schema_extra = {
-            "example": {
-                "year": 4
-            }
-        }
-
-
-class UpdateGpa(BaseModel):
-    gpa: float = Field(...)
-
-    class Config:
-        schema_extra = {
-            "example": {
+                "fullname": "Abdulazeez Abdulazeez",
+                "email": "abdulazeez@y.edu.ng",
+                "course_of_study": "Water resources and environmental engineering",
+                "year": 4,
                 "gpa": "5.0"
             }
         }
