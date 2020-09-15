@@ -5,3 +5,4 @@ motor==2.2.0
 pydantic[email]
 python-decouple
 email-validator
+PyJWT==1.7.1
