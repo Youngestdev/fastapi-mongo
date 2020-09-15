@@ -6,7 +6,7 @@ A simple starter for building RESTful APIs with FastAPI and MongoDB.
 
 + Python FastAPI backend.
 + MongoDB database.
-+ Authentication [Coming soon]
++ Authentication
 + Deployment
 
 ## How To Use
@@ -35,7 +35,7 @@ You also need to start your mongodb instance.
 
 The starter listens on port 8000 on address [0.0.0.0](0.0.0.0). 
 
-![FastAPI-MongoDB starter](https://res.cloudinary.com/adeshina/image/upload/v1599469492/gwzjqryzfvufftyypldo.png)
+![FastAPI-MongoDB starter](https://res.cloudinary.com/adeshina/image/upload/v1600180509/fopab9idhrjqeqds4izk.png)
 
 ## Deploying to Vercel
 
@@ -85,7 +85,7 @@ Fork the repo, make changes and send a PR. We'll review it together!
 
 [x] Fix the `UPDATE` part of the CRUD operation
 
-[ ] Add Authentication
+[x] Add Authentication
 
 [x] Add Dockerfile
 
