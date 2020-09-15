@@ -6,3 +6,5 @@ pydantic[email]
 python-decouple
 email-validator
 PyJWT==1.7.1
+passlib
+bcrypt
