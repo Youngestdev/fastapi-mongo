@@ -81,21 +81,21 @@ Fork the repo, make changes and send a PR. We'll review it together!
 
 ## TODOS
 
-[ ] Add a simple bash script file that runs the installation process.
+- [ ] Add a simple bash script file that runs the installation process.
 
-[x] Fix the `UPDATE` part of the CRUD operation
+- [x] Fix the `UPDATE` part of the CRUD operation
 
-[x] Add Authentication
+- [x] Add Authentication
 
-[x] Add Dockerfile
+- [x] Add Dockerfile
 
-[x] Vercel configuration file
+- [x] Vercel configuration file
 
-[x] Deploying to Heroku
+- [x] Deploying to Heroku
 
-[ ] Write a concise README
+- [ ] Write a concise README
 
-[x] Format code. I'm new to FastAPI so I'll be working towards best practices.
+- [x] Format code. I'm new to FastAPI so I'll be working towards best practices.
 
 
 ## License
