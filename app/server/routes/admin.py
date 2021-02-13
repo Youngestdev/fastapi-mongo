@@ -15,6 +15,7 @@ hash_helper = CryptContext(schemes=["bcrypt"])
 
 @router.post("/login")
 async def admin_login(admin_credentials: HTTPBasicCredentials = Body(...)):
+    # NEW CODE
     admin_user = await admin_collection.find_one({"email": admin_credentials.username}, {"_id": 0})
     if (admin_user):
         password = hash_helper.verify(
@@ -36,7 +37,7 @@ async def admin_login(admin_credentials: HTTPBasicCredentials = Body(...)):
 
 @router.post("/")
 async def admin_signup(admin: AdminModel = Body(...)):
-    admin = admin_collection.find_one({"email":  admin.email})
+    admin = await admin_collection.find_one({"email":  admin.email}, {"_id": 0})
     if(admin):
         return "Email already exists"
     admin.password = hash_helper.encrypt(admin.password)
