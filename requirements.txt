@@ -16,7 +16,7 @@ pydantic==1.6.1
 PyJWT==1.7.1
 pymongo==3.11.0
 python-decouple==3.3
-PyYAML==3.11
+PyYAML==5.4
 pyzmq==22.0.3
 six==1.15.0
 starlette==0.13.6
