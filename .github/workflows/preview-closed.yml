@@ -1,0 +1,23 @@
+name: Delete Preview Namespace
+
+on: 
+  pull_request: 
+    types:
+      - closed
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@master
+
+    - name: Login
+      uses: okteto/login@master
+      with:
+        token: ${{ secrets.OKTETO_TOKEN }}
+
+    - name: Delete namespace
+      uses: okteto/delete-namespace@master
+      with:
+        namespace: pr-${{ github.event.number }}-youngestdev
