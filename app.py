@@ -1,8 +1,8 @@
 from fastapi import FastAPI, Depends
 
-from .auth.jwt_bearer import JWTBearer
-from .routes.student import router as StudentRouter
-from .routes.admin import router as AdminRouter
+from auth.jwt_bearer import JWTBearer
+from routes.student import router as StudentRouter
+from routes.admin import router as AdminRouter
 
 app = FastAPI()
 
