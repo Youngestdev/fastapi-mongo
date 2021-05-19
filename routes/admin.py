@@ -3,11 +3,10 @@ from fastapi.encoders import jsonable_encoder
 from fastapi.security import HTTPBasicCredentials
 from passlib.context import CryptContext
 
-from server.database.database import admin_collection
-#from app.server.auth.admin import validate_login
-from server.auth.jwt_handler import signJWT
-from server.database.database import add_admin
-from server.models.admin import AdminModel
+from database.database import admin_collection
+from auth.jwt_handler import signJWT
+from database.database import add_admin
+from models.admin import AdminModel
 
 router = APIRouter()
 
@@ -26,14 +25,6 @@ async def admin_login(admin_credentials: HTTPBasicCredentials = Body(...)):
         return "Incorrect email or password"
 
     return "Incorrect email or password"
-
-    # OLD CODE 
-    # if validate_login(admin):
-    #     return {
-    #         "email": admin.username,
-    #         "access_token": signJWT(admin.username)
-    #     }
-    # return "Invalid Login Details!"
 
 @router.post("/")
 async def admin_signup(admin: AdminModel = Body(...)):

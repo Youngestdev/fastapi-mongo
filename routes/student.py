@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Body
 from fastapi.encoders import jsonable_encoder
 
-from app.server.database.database import *
-from app.server.models.student import *
+from database.database import *
+from models.student import *
 
 router = APIRouter()
 
@@ -21,7 +21,7 @@ async def get_student_data(id):
     student = await retrieve_student(id)
     return ResponseModel(student, "Student data retrieved successfully") \
         if student \
-        else ErrorResponseModel("An error occured.", 404, "Student doesn'exist.")
+        else ErrorResponseModel("An error occured.", 404, "Student doesn't exist.")
 
 
 @router.post("/", response_description="Student data added into the database")
