@@ -10,11 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Create env file
-        run: |
-          touch .env
-          echo MONGO_DETAILS=${{ secrets.MONGO_DETAILS }} >> .env
-          echo secret=${{ secrets.secret_key }} >> .env
-          cat .env    
+      run: |
+        touch .env
+        echo "MONGO_DETAILS=${{ secrets.MONGO_DETAILS }} >> .env
+        echo secret=${{ secrets.secret_key }} >> .env
+        cat .env    
     
     - name: checkout
       uses: actions/checkout@master
