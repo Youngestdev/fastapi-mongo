@@ -3,7 +3,7 @@ name: App Preview Deployment
 on: 
   pull_request:
     branches:
-      - main
+      - master
 
 jobs:
   preview:
