@@ -12,7 +12,7 @@ nanodb==0.4.3
 nanodb-driver==0.0.3
 passlib==1.7.2
 pycparser==2.20
-pydantic==1.6.1
+pydantic==1.6.2
 PyJWT==1.7.1
 pymongo==3.11.0
 python-decouple==3.3
