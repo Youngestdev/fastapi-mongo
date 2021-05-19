@@ -1,11 +1,12 @@
 FROM python:3.8
+WORKDIR /app
 
-ADD requirements.txt /requirements.txt
+ADD requirements.txt /app/requirements.txt
 
-RUN pip install -r requirements.txt
+RUN pip install --upgrade -r requirements.txt
 
 EXPOSE 80
 
-COPY ./app /app
+COPY ./ /app
 
-CMD ["uvicorn", "app.server.app:app", "--host", "0.0.0.0", "--port", "80"]
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8080"]
