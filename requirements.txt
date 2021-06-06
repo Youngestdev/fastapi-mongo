@@ -5,3 +5,4 @@ uvicorn
 pymongo
 python-decouple
 fastapi
+pydantic[email]
