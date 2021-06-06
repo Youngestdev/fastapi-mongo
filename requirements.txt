@@ -6,3 +6,4 @@ pymongo
 python-decouple
 fastapi
 pydantic[email]
+passlib
