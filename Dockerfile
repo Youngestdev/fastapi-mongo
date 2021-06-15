@@ -5,7 +5,7 @@ ADD requirements.txt /app/requirements.txt
 
 RUN pip install --upgrade -r requirements.txt
 
-EXPOSE 80
+EXPOSE 8080
 
 COPY ./ /app
 
