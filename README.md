@@ -28,7 +28,7 @@ export PYTHONPATH=$PWD
 Next:
 
 ```console
-python app/main.py
+python main.py
 ```
 
 You also need to start your mongodb instance.
