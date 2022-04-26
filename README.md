@@ -1,4 +1,4 @@
-# FastAPI + MongoDB
+# FastAPI and MongoDB Boilerplate
 
 A simple starter for building RESTful APIs with FastAPI and MongoDB. 
 
@@ -9,23 +9,23 @@ A simple starter for building RESTful APIs with FastAPI and MongoDB.
 + Authentication
 + Deployment
 
-## How To Use
+## Using the applicaiton
 
-Clone this repository and make a virtual environment in it. Install the modules listed in the `requirements.txt` file:
+To use the application, follow the outlined steps:
 
-```console
-pip3 install -r requirements.txt
-```
-
-To run the starter:
-
-First, set your `PYTHONPATH`:
+1. Clone this repository and create a virtual environment in it:
 
 ```console
-export PYTHONPATH=$PWD
+$ python3 -m venv venv
 ```
 
-Next:
+2. Install the modules listed in the `requirements.txt` file:
+
+```console
+(venv)$ pip3 install -r requirements.txt
+```
+
+3. Start the application:
 
 ```console
 python main.py
@@ -39,7 +39,7 @@ The starter listens on port 8000 on address [0.0.0.0](0.0.0.0:8080).
 
 ## Deployment
 
-[![Develop on Okteto](https://okteto.com/develop-okteto.svg)](https://cloud.okteto.com/deploy?repository=https://github.com/Youngestdev/fastapi-mongo)
+This application can be deployed on any PaaS such as [Heroku](https://heroku.com) or [Okteto](https://okteto) and any other cloud service provider.
 
 
 ## Contributing ?
