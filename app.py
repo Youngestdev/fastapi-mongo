@@ -1,12 +1,19 @@
 from fastapi import FastAPI, Depends
 
 from auth.jwt_bearer import JWTBearer
-from routes.student import router as StudentRouter
+from config.config import initiate_database
 from routes.admin import router as AdminRouter
+from routes.student import router as StudentRouter
 
 app = FastAPI()
 
 token_listener = JWTBearer()
+
+
+@app.on_event("startup")
+async def start_database():
+    await initiate_database()
+
 
 @app.get("/", tags=["Root"])
 async def read_root():

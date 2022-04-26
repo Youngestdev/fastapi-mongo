@@ -1,51 +1,49 @@
-import motor.motor_asyncio
-from bson import ObjectId
-from decouple import config
+from typing import List, Union
 
-from .database_helper import student_helper, admin_helper
+from beanie import PydanticObjectId
 
-MONGO_DETAILS = config('MONGO_DETAILS')
+from models.admin import Admin
+from models.student import Student
 
-client = motor.motor_asyncio.AsyncIOMotorClient(MONGO_DETAILS)
+admin_collection = Admin
+student_collection = Student
 
-database = client.students
 
-student_collection = database.get_collection('students_collection')
-admin_collection = database.get_collection('admins')
+async def add_admin(new_admin: Admin) -> Admin:
+    admin = await new_admin.create()
+    return admin
 
-async def add_admin(admin_data: dict) -> dict:
-    admin = await admin_collection.insert_one(admin_data)
-    new_admin = await admin_collection.find_one({"_id": admin.inserted_id})
-    return admin_helper(new_admin)
 
-async def retrieve_students():
-    students = []
-    async for student in student_collection.find():
-        students.append(student_helper(student))
+async def retrieve_students() -> List[Student]:
+    students = await student_collection.all().to_list()
     return students
 
 
-async def add_student(student_data: dict) -> dict:
-    student = await student_collection.insert_one(student_data)
-    new_student = await student_collection.find_one({"_id": student.inserted_id})
-    return student_helper(new_student)
+async def add_student(new_student: Student) -> Student:
+    student = await new_student.create()
+    return student
 
 
-async def retrieve_student(id: str) -> dict:
-    student = await student_collection.find_one({"_id": ObjectId(id)})
+async def retrieve_student(id: PydanticObjectId) -> Student:
+    student = await student_collection.get(id)
     if student:
-        return student_helper(student)
+        return student
 
 
-async def delete_student(id: str):
-    student = await student_collection.find_one({"_id": ObjectId(id)})
+async def delete_student(id: PydanticObjectId) -> bool:
+    student = await student_collection.get(id)
     if student:
-        await student_collection.delete_one({"_id": ObjectId(id)})
+        await student.delete()
         return True
 
 
-async def update_student_data(id: str, data: dict):
-    student = await student_collection.find_one({"_id": ObjectId(id)})
+async def update_student_data(id: PydanticObjectId, data: dict) -> Union[bool, Student]:
+    des_body = {k: v for k, v in data.items() if v is not None}
+    update_query = {"$set": {
+        field: value for field, value in des_body.items()
+    }}
+    student = await student_collection.get(id)
     if student:
-        student_collection.update_one({"_id": ObjectId(id)}, {"$set": data})
-        return True
+        await student.update(update_query)
+        return student
+    return False
