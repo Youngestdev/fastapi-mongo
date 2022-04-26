@@ -7,6 +7,7 @@ from database.database import admin_collection
 security = HTTPBasic()
 hash_helper = CryptContext(schemes=["bcrypt"])
 
+
 async def validate_login(credentials: HTTPBasicCredentials = Depends(security)):
     admin = admin_collection.find_one({"email": credentials.username})
     if admin:
