@@ -1,9 +1,9 @@
 motor~=2.5.1
-PyJWT~=2.3.0
+PyJWT~=2.4.0
 bcrypt
 uvicorn~=0.17.6
 pymongo~=3.12.3
-fastapi~=0.75.2
+fastapi~=0.78.0
 pydantic[email]~=1.9.0
 passlib~=1.7.4
 
