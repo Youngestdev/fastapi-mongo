@@ -24,7 +24,7 @@ $ python3 -m venv venv
 ```console
 (venv)$ pip3 install -r requirements.txt
 ```
-3. You also need to start your mongodb instance either locally or on Docker as well as create a `.env` file. See the `.env.sample` for configurations.
+3. You also need to start your mongodb instance either locally or on Docker as well as create a `.env.dev` file. See the `.env.sample` for configurations.
 
 4. Start the application:
 
