@@ -18,4 +18,7 @@ async def validate_login(credentials: HTTPBasicCredentials = Depends(security)):
                 detail="Incorrect email or password"
             )
         return True
-    return False
+    raise HTTPException(
+                status_code=status.HTTP_401_UNAUTHORIZED,
+                detail="Incorrect email or password"
+            )
