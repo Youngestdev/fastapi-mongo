@@ -34,7 +34,7 @@ jobs:
         namespace: pr-${{ github.event.number }}-kenmwaura1
    
     - name: Deploy application
-      uses: okteto/deploy-stack@master
+      uses: okteto/deploy-stack@main
       with:
         build: "true"
         namespace: pr-${{ github.event.number }}-kenmwaura1

@@ -20,6 +20,6 @@ jobs:
         token: ${{ secrets.OKTETO_TOKEN }}
 
     - name: Delete namespace
-      uses: okteto/delete-namespace@master
+      uses: okteto/delete-namespace@main
       with:
         namespace: pr-${{ github.event.number }}-kenmwaura1
