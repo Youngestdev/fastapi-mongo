@@ -3,15 +3,20 @@ name: App Preview Deployment
 on: 
   pull_request:
     branches:
-      - master
-
+      - master 
+      - dev
+    types:
+      - opened
+      - synchronize
+      - reopened
+      
 jobs:
   preview:
     runs-on: ubuntu-latest
     steps:
     - name: Create env file
       run: |
-        cp env.sample .env 
+        cp .env.sample .env 
     
     - name: checkout
       uses: actions/checkout@master
