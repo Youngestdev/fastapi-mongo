@@ -1,0 +1,21 @@
+name: Docker Compose Actions Workflow
+on: push
+concurrency: "4"
+jobs:
+  docker-compose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3.3.0
+      - name: Build the images and start the containers
+        run: |
+          export GITHUB_WORKFLOW=True
+          export MODE="Test"
+          docker-compose -f docker-compose.yml build
+          docker-compose -f docker-compose.yml up -d
+        # run: docker-compose up -d --build
+      - name: Stop containers
+        if: always()
+        run: | 
+          docker-compose -f "docker-compose.yml" down
+          
+
