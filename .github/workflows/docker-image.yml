@@ -26,9 +26,13 @@ jobs:
     - name: Build the Docker image
       run: docker-compose build --no-cache --force-rm 
   test:
+    
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Create env file
+        run: |
+          cp .env.sample .env
       - name: Test the Docker image
         run: docker-compose up -d 
   push_to_registry:
