@@ -6,6 +6,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3.3.0
+      - name: Create env file
+        run: |
+          cp env.sample .env 
       - name: Build the images and start the containers
         run: |
           export GITHUB_WORKFLOW=True

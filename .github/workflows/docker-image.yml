@@ -20,6 +20,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: Create env file
+      run: |
+        cp env.sample .env
     - name: Build the Docker image
       run: docker-compose build --no-cache --force-rm 
   test:

@@ -11,7 +11,7 @@ jobs:
     steps:
     - name: Create env file
       run: |
-        cp env.sample .env.dev 
+        cp env.sample .env 
     
     - name: checkout
       uses: actions/checkout@master
