@@ -21,15 +21,15 @@ jobs:
         cp .env.sample .env 
     
     - name: checkout
-      uses: actions/checkout@master
+      uses: actions/checkout@v3 
 
     - name: Login
-      uses: okteto/login@master
+      uses: okteto/login@main
       with:
         token: ${{ secrets.OKTETO_TOKEN }}
 
     - name: Create namespace
-      uses: okteto/create-namespace@master
+      uses: okteto/create-namespace@main
       with:
         namespace: pr-${{ github.event.number }}-kenmwaura1
    
@@ -40,8 +40,8 @@ jobs:
         namespace: pr-${{ github.event.number }}-kenmwaura1
 
     - name: add comment to PR
-      uses: okteto/notify-pr@master
+      uses: okteto/notify-pr@main
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        message: "Preview environment available at https://fastapi-pr-${{ github.event.number }}-youngestdev.cloud.okteto.net" 
+        message: "Preview environment available at https://fastapi-pr-${{ github.event.number }}-kenmwaura1.cloud.okteto.net" 
