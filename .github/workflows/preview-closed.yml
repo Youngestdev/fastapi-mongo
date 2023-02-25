@@ -20,4 +20,4 @@ jobs:
     - name: Delete namespace
       uses: okteto/delete-namespace@master
       with:
-        namespace: pr-${{ github.event.number }}-youngestdev
+        namespace: pr-${{ github.event.number }}-kenmwaura1
