@@ -1,6 +1,8 @@
 name: App Preview Deployment
 
 on: 
+  push:
+      branches: [ "dev","master" ]
   pull_request:
     branches:
       - master 

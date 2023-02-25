@@ -1,6 +1,8 @@
 name: Delete Preview Namespace
 
 on: 
+  push:
+    branches: [ "dev","master" ]
   pull_request: 
     types:
       - closed
