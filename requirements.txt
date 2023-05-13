@@ -1,10 +1,12 @@
-motor
+motor #3.1.1
 PyJWT
-bcrypt
-uvicorn
-pymongo
-fastapi
-pydantic[email,dotenv]
-passlib
+bcrypt # 4.0.1
+uvicorn # 0.21.1
+pymongo # 4.3.3
+fastapi # 0.95.0
+pydantic[email,dotenv] #1.10.7
+passlib # 1.7.4
 
-beanie
+beanie # 1.18.0
+pytest # 7.3.1
+httpx # 0.24.0
