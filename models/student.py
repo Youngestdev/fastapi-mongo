@@ -23,6 +23,10 @@ class Student(Document):
         }
 
 
+    class Settings:
+        name = "student"
+
+
 class UpdateStudentModel(BaseModel):
     fullname: Optional[str]
     email: Optional[EmailStr]

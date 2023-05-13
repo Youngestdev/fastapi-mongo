@@ -8,8 +8,6 @@ class Admin(Document):
     email: EmailStr
     password: str
 
-    class Collection:
-        name = "admin"
 
     class Config:
         schema_extra = {
@@ -19,6 +17,10 @@ class Admin(Document):
                 "password": "3xt3m#"
             }
         }
+
+    class Settings:
+        name = "admin"
+
 
 
 class AdminSignIn(HTTPBasicCredentials):
