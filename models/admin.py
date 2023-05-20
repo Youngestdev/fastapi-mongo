@@ -8,13 +8,12 @@ class Admin(Document):
     email: EmailStr
     password: str
 
-
     class Config:
         schema_extra = {
             "example": {
                 "fullname": "Abdulazeez Abdulazeez Adeshina",
                 "email": "abdul@youngest.dev",
-                "password": "3xt3m#"
+                "password": "3xt3m#",
             }
         }
 
@@ -22,14 +21,10 @@ class Admin(Document):
         name = "admin"
 
 
-
 class AdminSignIn(HTTPBasicCredentials):
     class Config:
         schema_extra = {
-            "example": {
-                "username": "abdul@youngest.dev",
-                "password": "3xt3m#"
-            }
+            "example": {"username": "abdul@youngest.dev", "password": "3xt3m#"}
         }
 
 

@@ -13,11 +13,13 @@ async def get_students():
         "status_code": 200,
         "response_type": "success",
         "description": "Students data retrieved successfully",
-        "data": students
+        "data": students,
     }
 
 
-@router.get("/{id}", response_description="Student data retrieved", response_model=Response)
+@router.get(
+    "/{id}", response_description="Student data retrieved", response_model=Response
+)
 async def get_student_data(id: PydanticObjectId):
     student = await retrieve_student(id)
     if student:
@@ -25,7 +27,7 @@ async def get_student_data(id: PydanticObjectId):
             "status_code": 200,
             "response_type": "success",
             "description": "Student data retrieved successfully",
-            "data": student
+            "data": student,
         }
     return {
         "status_code": 404,
@@ -34,14 +36,18 @@ async def get_student_data(id: PydanticObjectId):
     }
 
 
-@router.post("/", response_description="Student data added into the database", response_model=Response)
+@router.post(
+    "/",
+    response_description="Student data added into the database",
+    response_model=Response,
+)
 async def add_student_data(student: Student = Body(...)):
     new_student = await add_student(student)
     return {
         "status_code": 200,
         "response_type": "success",
         "description": "Student created successfully",
-        "data": new_student
+        "data": new_student,
     }
 
 
@@ -53,13 +59,13 @@ async def delete_student_data(id: PydanticObjectId):
             "status_code": 200,
             "response_type": "success",
             "description": "Student with ID: {} removed".format(id),
-            "data": deleted_student
+            "data": deleted_student,
         }
     return {
         "status_code": 404,
         "response_type": "error",
         "description": "Student with id {0} doesn't exist".format(id),
-        "data": False
+        "data": False,
     }
 
 
@@ -71,11 +77,11 @@ async def update_student(id: PydanticObjectId, req: UpdateStudentModel = Body(..
             "status_code": 200,
             "response_type": "success",
             "description": "Student with ID: {} updated".format(id),
-            "data": updated_student
+            "data": updated_student,
         }
     return {
         "status_code": 404,
         "response_type": "error",
         "description": "An error occurred. Student with ID: {} not found".format(id),
-        "data": False
+        "data": False,
     }
