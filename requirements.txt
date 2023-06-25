@@ -1,10 +1,14 @@
-motor~=2.5.1
-PyJWT~=2.4.0
-bcrypt
-uvicorn~=0.17.6
-pymongo~=3.12.3
-fastapi~=0.78.0
-pydantic[email,dotenv]~=1.9.0
-passlib~=1.7.4
+motor #3.1.1
+PyJWT
+bcrypt # 4.0.1
+uvicorn # 0.21.1
+pymongo # 4.3.3
+fastapi # 0.95.0
+pydantic[email,dotenv] #1.10.7
+passlib # 1.7.4
 
-beanie~=1.10.8
+beanie # 1.18.0
+pytest # 7.3.1
+httpx # 0.24.0
+mongomock_motor # 0.0.19
+pytest-mock # 3.10.0

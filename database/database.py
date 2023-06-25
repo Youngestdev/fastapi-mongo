@@ -39,9 +39,7 @@ async def delete_student(id: PydanticObjectId) -> bool:
 
 async def update_student_data(id: PydanticObjectId, data: dict) -> Union[bool, Student]:
     des_body = {k: v for k, v in data.items() if v is not None}
-    update_query = {"$set": {
-        field: value for field, value in des_body.items()
-    }}
+    update_query = {"$set": {field: value for field, value in des_body.items()}}
     student = await student_collection.get(id)
     if student:
         await student.update(update_query)

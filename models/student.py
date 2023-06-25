@@ -18,9 +18,12 @@ class Student(Document):
                 "email": "abdul@school.com",
                 "course_of_study": "Water resources engineering",
                 "year": 4,
-                "gpa": "3.76"
+                "gpa": "3.76",
             }
         }
+
+    class Settings:
+        name = "student"
 
 
 class UpdateStudentModel(BaseModel):
@@ -40,7 +43,7 @@ class UpdateStudentModel(BaseModel):
                 "email": "abdul@school.com",
                 "course_of_study": "Water resources and environmental engineering",
                 "year": 4,
-                "gpa": "5.0"
+                "gpa": "5.0",
             }
         }
 
@@ -57,6 +60,6 @@ class Response(BaseModel):
                 "status_code": 200,
                 "response_type": "success",
                 "description": "Operation successful",
-                "data": "Sample data"
+                "data": "Sample data",
             }
         }
