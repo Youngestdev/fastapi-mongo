@@ -1,6 +1,8 @@
 # FastAPI and MongoDB Boilerplate
 
-A simple starter for building RESTful APIs with FastAPI and MongoDB. 
+A simple starter for building RESTful APIs with FastAPI and MongoDB.
+
+![image](./img.jpg)
 
 ## Features
 
