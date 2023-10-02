@@ -12,7 +12,7 @@ class Student(Document):
     gpa: float
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "fullname": "Abdulazeez Abdulazeez Adeshina",
                 "email": "abdul@school.com",

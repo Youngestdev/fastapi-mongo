@@ -3,7 +3,8 @@ from passlib.context import CryptContext
 
 from auth.jwt_handler import sign_jwt
 from database.database import add_admin
-from models.admin import Admin, AdminData, AdminSignIn
+from models.admin import Admin
+from schemas.admin import AdminData, AdminSignIn
 
 router = APIRouter()
 
@@ -23,7 +24,7 @@ async def admin_login(admin_credentials: AdminSignIn = Body(...)):
     raise HTTPException(status_code=403, detail="Incorrect email or password")
 
 
-@router.post("/new", response_model=AdminData)
+@router.post("", response_model=AdminData)
 async def admin_signup(admin: Admin = Body(...)):
     admin_exists = await Admin.find_one(Admin.email == admin.email)
     if admin_exists:
