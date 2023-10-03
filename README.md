@@ -42,7 +42,7 @@ python main.py
 
 The starter listens on port 8000 on address [0.0.0.0](0.0.0.0:8080). 
 
-![FastAPI-MongoDB starter](https://user-images.githubusercontent.com/31009679/165318867-4a0504d5-1fd0-4adc-8df9-db2ff3c0c3b9.png)
+![FastAPI-MongoDB starter](doc.png)
 
 
 ## Testing
