@@ -21,9 +21,4 @@ async def read_root():
 
 
 app.include_router(AdminRouter, tags=["Administrator"], prefix="/admin")
-app.include_router(
-    StudentRouter,
-    tags=["Students"],
-    prefix="/student",
-    dependencies=[Depends(token_listener)],
-)
+app.include_router(StudentRouter,tags=["Students"],prefix="/student",dependencies=[Depends(token_listener)],)
