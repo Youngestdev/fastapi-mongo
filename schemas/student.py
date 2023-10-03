@@ -29,7 +29,7 @@ class Response(BaseModel):
     data: Optional[Any]
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "status_code": 200,
                 "response_type": "success",

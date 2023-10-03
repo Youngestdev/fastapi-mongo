@@ -36,7 +36,7 @@ $ python3 -m venv venv
 4. Start the application:
 
 ```console
-python main.py
+python3 main.py
 ```
 
 

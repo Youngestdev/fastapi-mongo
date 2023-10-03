@@ -16,7 +16,7 @@ class Settings(BaseSettings):
 
     class Config:
         env_file = ".env.dev"
-        orm_mode = True
+        from_attributes = True
 
 
 async def initiate_database():
