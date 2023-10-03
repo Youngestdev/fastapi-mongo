@@ -1,7 +1,9 @@
 from fastapi import APIRouter, Body
 
 from database.database import *
-from models.student import *
+from models.student import Student
+from schemas.student import Response, UpdateStudentModel
+
 
 router = APIRouter()
 
@@ -17,9 +19,7 @@ async def get_students():
     }
 
 
-@router.get(
-    "/{id}", response_description="Student data retrieved", response_model=Response
-)
+@router.get("/{id}", response_description="Student data retrieved", response_model=Response)
 async def get_student_data(id: PydanticObjectId):
     student = await retrieve_student(id)
     if student:
