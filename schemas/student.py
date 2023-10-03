@@ -1,4 +1,5 @@
-from pydantic import BaseModel,Optional, EmailStr, Any
+from pydantic import BaseModel, EmailStr
+from typing import Optional, Any
 
 class UpdateStudentModel(BaseModel):
     fullname: Optional[str]
