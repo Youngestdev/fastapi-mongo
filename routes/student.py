@@ -2,13 +2,13 @@ from fastapi import APIRouter, Body
 
 from database.database import *
 from models.student import Student
-from schemas.category import Response, UpdateStudentModel
+from schemas.student import Response, UpdateStudentModel
 
 
 router = APIRouter()
 
 
-@router.get("/", response_description="Students retrieved", response_model=Response)
+@router.get("/users", response_description="Students retrieved", response_model=Response)
 async def get_students():
     students = await retrieve_students()
     return {
@@ -19,7 +19,7 @@ async def get_students():
     }
 
 
-@router.get("/{id}", response_description="Student data retrieved", response_model=Response)
+@router.get("/users/{id}", response_description="Student data retrieved", response_model=Response)
 async def get_student_data(id: PydanticObjectId):
     student = await retrieve_student(id)
     if student:
@@ -37,7 +37,7 @@ async def get_student_data(id: PydanticObjectId):
 
 
 @router.post(
-    "/",
+    "/users",
     response_description="Student data added into the database",
     response_model=Response,
 )
@@ -51,7 +51,7 @@ async def add_student_data(student: Student = Body(...)):
     }
 
 
-@router.delete("/{id}", response_description="Student data deleted from the database")
+@router.delete("/users/{id}", response_description="Student data deleted from the database")
 async def delete_student_data(id: PydanticObjectId):
     deleted_student = await delete_student(id)
     if deleted_student:
