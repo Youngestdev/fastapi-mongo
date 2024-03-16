@@ -2,7 +2,7 @@ from fastapi import Body, APIRouter, HTTPException
 from passlib.context import CryptContext
 
 from auth.jwt_handler import sign_jwt
-from database.database import add_user
+from database.user import add_user
 from models.User import User
 from schemas.user import UserData, UserSignIn
 

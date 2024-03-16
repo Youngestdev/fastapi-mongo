@@ -9,6 +9,7 @@ import models as models
 class Settings(BaseSettings):
     # database configurations
     DATABASE_URL: Optional[str] = None
+    JWT_SECRET_KEY: Optional[str]= None
 
     class Config:
         env_file = ".env.dev"
