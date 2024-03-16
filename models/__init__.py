@@ -1,4 +1,4 @@
-from models.admin import Admin
-from models.student import Student
+from models.Category import Category
+from models.User import User
 
-__all__ = [Student, Admin]
+__all__ = [User, Category]

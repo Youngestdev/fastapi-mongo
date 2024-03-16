@@ -33,3 +33,4 @@ toml==0.10.2
 tomli==2.0.1
 typing_extensions==4.8.0
 uvicorn==0.23.2
+pymongo==2.4.2

@@ -2,7 +2,7 @@ from fastapi import APIRouter, Body
 
 from database.database import *
 from models.student import Student
-from schemas.student import Response, UpdateStudentModel
+from schemas.category import Response, UpdateStudentModel
 
 
 router = APIRouter()
