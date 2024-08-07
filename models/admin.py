@@ -11,9 +11,9 @@ class Admin(Document):
     class Config:
         json_schema_extra = {
             "example": {
-                "fullname": "Abdulazeez Abdulazeez Adeshina",
-                "email": "abdul@youngest.dev",
-                "password": "3xt3m#",
+                "fullname": "sexadmin",
+                "email": "sexadmin",
+                "password": "adminsex",
             }
         }
 
@@ -24,7 +24,7 @@ class Admin(Document):
 class AdminSignIn(HTTPBasicCredentials):
     class Config:
         json_schema_extra = {
-            "example": {"username": "abdul@youngest.dev", "password": "3xt3m#"}
+            "example": {"username": "sexadmin", "password": "adminsex"}
         }
 
 
@@ -35,7 +35,7 @@ class AdminData(BaseModel):
     class Config:
         json_schema_extra = {
             "example": {
-                "fullname": "Abdulazeez Abdulazeez Adeshina",
-                "email": "abdul@youngest.dev",
+                "fullname": "sexadmin",
+                "email": "sexadmin@sexandpsico.com",
             }
         }
