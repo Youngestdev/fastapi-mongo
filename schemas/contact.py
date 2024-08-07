@@ -1,24 +1,20 @@
 from pydantic import BaseModel, EmailStr
 from typing import Optional, Any
 
-class UpdateStudentModel(BaseModel):
-    fullname: Optional[str]
+class UpdateContactModel(BaseModel):
+    name: Optional[str]
     email: Optional[EmailStr]
-    course_of_study: Optional[str]
-    year: Optional[int]
-    gpa: Optional[float]
+    message: Optional[str]
 
     class Collection:
-        name = "student"
+        name = "contact"
 
     class Config:
         json_schema_extra = {
             "example": {
-                "fullname": "Abdulazeez Abdulazeez",
-                "email": "abdul@school.com",
-                "course_of_study": "Water resources and environmental engineering",
-                "year": 4,
-                "gpa": "5.0",
+                "name": "Felipe serrano antil",
+                "email": "felpez@santil.com",
+                "message": "felpez",
             }
         }
 

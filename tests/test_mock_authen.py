@@ -13,6 +13,6 @@ class TestMockAuthentication:
 
     @pytest.mark.anyio
     async def test_api_processed_jobs(self, client_test: AsyncClient):
-        response = await client_test.get("student")
+        response = await client_test.get("contact")
 
         assert response.status_code == 200

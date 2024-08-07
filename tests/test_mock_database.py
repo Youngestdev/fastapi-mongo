@@ -5,7 +5,7 @@ from httpx import AsyncClient
 import pytest
 
 from models.admin import Admin
-from models.student import Student
+from models.contact import Contact
 from tests.conftest import mock_no_authentication
 
 
@@ -21,15 +21,13 @@ class TestMockAuthentication:
             fullname="admin", email="admin@admin.com", password="admin"
         ).create()
 
-        await Student(
-            fullname="student",
-            email="student@student.com",
-            course_of_study="computer science",
-            year=2021,
-            gpa=4.0,
+        await Contact(
+            fullname="contact mock",
+            email="mock@contact.com",
+            message="tengo un problema, un problema sexual"
         ).create()
 
-        response = await client_test.get("student")
+        response = await client_test.get("contact")
 
         assert response.status_code == 200
 
@@ -39,14 +37,12 @@ class TestMockAuthentication:
             fullname="admin", email="admin@admin.com", password="admin"
         ).create()
 
-        await Student(
-            fullname="student",
-            email="student@student.com",
-            course_of_study="computer science",
-            year=2021,
-            gpa=4.0,
+        await Contact(
+            fullname="contact",
+            email="mock2@contact.com",
+            course_of_study="mock2"
         ).create()
 
-        response = await client_test.get("student")
+        response = await client_test.get("contact")
 
         assert response.status_code == 200
